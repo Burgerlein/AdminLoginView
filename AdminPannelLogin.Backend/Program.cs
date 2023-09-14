@@ -13,8 +13,7 @@ builder.Services.AddCors(options =>
 
         {
             builder.AllowAnyOrigin();
-            // builder.WithOrigins("https://localhost:7142/HelloWorld/create",
-                // "http://localhost:5173");
+         
         });
 });
 var app = builder.Build();
