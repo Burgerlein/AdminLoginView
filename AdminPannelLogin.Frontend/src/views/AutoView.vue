@@ -4,7 +4,7 @@ import { ref } from 'vue';
 type Auto = { name: string; kenzeichen: string };
 
 const auto = ref<Auto>();
-fetch('https://localhost:7142/HelloWorld/create')
+fetch('https://localhost:7142/api/Auto')
   .then((response) => response.json())
   .then((json) => (auto.value = json as Auto));
 </script>
