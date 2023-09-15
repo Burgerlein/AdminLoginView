@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router';
 import HelloWorld from './components/HelloWorld.vue';
 </script>
-
+<!-- This is for testing purposes -->
 <template>
   <header>
     <div class="wrapper">
