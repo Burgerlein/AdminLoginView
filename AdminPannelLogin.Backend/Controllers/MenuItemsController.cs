@@ -22,18 +22,16 @@ public class MenuItemsController : ControllerBase
         var menuItems = _menuItemRepository.GetAll();
         var menuItemViewModels = new List<MenuItemViewModel>();
 
-        foreach (var menuitem in menuItems)
-        {
-            menuItemViewModels.Add(new MenuItemViewModel
-            {
-                Id = menuitem.Id,
-                Price = menuitem.Price,
-                NameDe = menuitem.NameDe,
-                NameEn = menuitem.NameEn,
-                DescriptionDe = menuitem.DescriptionDe,
-                DescriptionEn = menuitem.DescriptionEn
-            });
-        }
+        foreach (var menuItem in menuItems)
+            menuItemViewModels.Add(new MenuItemViewModel(menuItem));
+
         return menuItemViewModels;
+    }
+
+    [HttpGet("{id:int}")]
+    public MenuItemViewModel GetById(int id)
+    {
+        var menuItem = _menuItemRepository.GetById(id);
+        return new MenuItemViewModel(menuItem);
     }
 }

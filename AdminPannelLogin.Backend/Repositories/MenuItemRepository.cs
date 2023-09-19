@@ -6,6 +6,7 @@ namespace AdminPannelLogin.Backend.Repositories;
 public interface IMenuItemRepository
 {
     public List<MenuItem> GetAll();
+    public MenuItem GetById(int id);
 }
 
 public class MenuItemRepository : IMenuItemRepository
@@ -27,6 +28,24 @@ public class MenuItemRepository : IMenuItemRepository
     {
         _context.Add(menuItem);
         _context.SaveChanges();
+        return menuItem;
+    }
+
+    public MenuItem Update(MenuItem itemToUpdate)
+    {
+        var menuItem = GetById(itemToUpdate.Id);
+        menuItem.NameDe = itemToUpdate.NameDe;
+        menuItem.NameEn = itemToUpdate.NameEn;
+        menuItem.DescriptionDe = itemToUpdate.DescriptionDe;
+        menuItem.DescriptionEn = itemToUpdate.DescriptionEn;
+        menuItem.Price = itemToUpdate.Price;
+        _context.SaveChanges();
+        return menuItem;
+    }
+
+    public MenuItem GetById(int id)
+    {
+        var menuItem = _context.MenuItems.First(item => item.Id == id);
         return menuItem;
     }
 }
