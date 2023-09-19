@@ -1,18 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import type { MenuItem } from '@/api/MenuItem';
+import api from '@/api';
 
-type MenuItem = {
-  id: string;
-  price: string;
-  nameDe: string;
-  nameEn: string;
-  descriptionDe: string;
-  descriptionEn: string;
-};
 const menuItems = ref<MenuItem[]>();
-fetch('https://localhost:7142/api/menuitems')
-  .then((response) => response.json())
-  .then((json) => (menuItems.value = json as MenuItem[]));
+api.fetchAllMeuItems().then((result) => (menuItems.value = result));
 </script>
 <template>
   <main v-if="menuItems">

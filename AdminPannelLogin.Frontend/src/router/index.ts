@@ -10,12 +10,12 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/menu',
+      path: '/menuItems',
       name: 'menu',
       component: () => import('../views/MenuView.vue')
     },
     {
-      path: '/menu/:id(\\d+)',
+      path: '/menuItems/:id(\\d+)',
       name: 'menudetail',
       props: true,
       component: () => import('../views/MenuDetailView.vue')
