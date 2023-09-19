@@ -10,6 +10,7 @@ public interface IMenuItemRepository
 
 public class MenuItemRepository : IMenuItemRepository
 {
+    
     private readonly DataContext _context;
 
     public MenuItemRepository(DataContext context)
@@ -20,5 +21,12 @@ public class MenuItemRepository : IMenuItemRepository
     public List<MenuItem> GetAll()
     {
         return _context.MenuItems.ToList();
+    }
+
+    public MenuItem Create(MenuItem menuItem)
+    {
+        _context.Add(menuItem);
+        _context.SaveChanges();
+        return menuItem;
     }
 }
