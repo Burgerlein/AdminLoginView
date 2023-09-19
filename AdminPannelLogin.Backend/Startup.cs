@@ -16,7 +16,7 @@ public class Startup
                 .EnableDetailedErrors()
         );
         
-        services.AddSingleton<IMenuItemRepository, MenuItemRepository>();
+        services.AddScoped<IMenuItemRepository, MenuItemRepository>();
 
     }
 
