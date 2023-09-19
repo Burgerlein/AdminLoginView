@@ -22,20 +22,18 @@ public class MenuItemsController : ControllerBase
         var menuItems = _menuItemRepository.GetAll();
         var menuItemViewModels = new List<MenuItemViewModel>();
 
-        for (var i = 0; menuItems.Count > i; i++)
+        foreach (var menuitem in menuItems)
         {
-            var menuItemViewModel = new MenuItemViewModel();
-
-            menuItemViewModel.Id = menuItems[i].Id;
-            menuItemViewModel.Price = menuItems[i].Price;
-            menuItemViewModel.NameDe = menuItems[i].NameDe;
-            menuItemViewModel.NameEn = menuItems[i].NameEn;
-            menuItemViewModel.DescriptionDe = menuItems[i].DescriptionDe;
-            menuItemViewModel.DescriptionEn = menuItems[i].DescriptionEn;
-
-            menuItemViewModels.Add(menuItemViewModel);
+            menuItemViewModels.Add(new MenuItemViewModel
+            {
+                Id = menuitem.Id,
+                Price = menuitem.Price,
+                NameDe = menuitem.NameDe,
+                NameEn = menuitem.NameEn,
+                DescriptionDe = menuitem.DescriptionDe,
+                DescriptionEn = menuitem.DescriptionEn
+            });
         }
-
         return menuItemViewModels;
     }
 }
