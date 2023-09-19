@@ -23,6 +23,6 @@ const router = createRouter({
       component: () => import('../views/AdminLoginView.vue')
     }
   ]
-})
+});
 
-export default router
+export default router;
