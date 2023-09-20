@@ -20,7 +20,7 @@ api.fetchMenuItemById(props.id!).then((result) => (menuItem.value = result));
     </div>
     <div>
       <h2>{{ menuItem?.price }}</h2>
-      <button class="EditBtn">Edit BTN</button>
+      <a :href="'../edit/' + menuItem.id">Edit BTN</a>
     </div>
   </div>
 

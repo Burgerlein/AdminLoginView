@@ -6,7 +6,6 @@ const props = defineProps({
 import { ref } from 'vue';
 import type { MenuItem } from '@/api/MenuItem';
 import api from '@/api';
-
 const menuItem = ref<MenuItem | undefined>();
 api.fetchMenuItemById(props.id!).then((result) => (menuItem.value = result));
 </script>
@@ -14,15 +13,19 @@ api.fetchMenuItemById(props.id!).then((result) => (menuItem.value = result));
   <div v-if="menuItem">
     <form action="">
       <p>Deutscher Item Name:</p>
-      <input :value="menuItem?.nameDe" type="text" />
+      <input :value="menuItem?.nameDe" type="text" required />
+
       <p>Englischer Item Name:</p>
       <input :value="menuItem?.nameEn" type="text" />
+
       <p>Deutsche Beschreibung:</p>
       <input :value="menuItem?.descriptionDe" type="text" />
+
       <p>Englische Beschreibung:</p>
       <input :value="menuItem?.descriptionEn" type="text" />
+
       <p>Preis:</p>
-      <input :value="menuItem?.price" type="text" />
+      <input :value="menuItem?.price" type="text" required />
       <br />
       <input type="submit" />
     </form>
@@ -59,7 +62,6 @@ input[type='text'] {
   }
   input[type='text'] {
     font-size: 3vw;
-    width: 100%;
   }
 }
 </style>
