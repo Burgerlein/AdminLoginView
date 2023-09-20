@@ -7,6 +7,10 @@ public interface IMenuItemRepository
 {
     public List<MenuItem> GetAll();
     public MenuItem GetById(int id);
+    public MenuItem Update(MenuItem itemToUpdate);
+    public MenuItem Create(MenuItem menuItem);
+
+
 }
 
 public class MenuItemRepository : IMenuItemRepository

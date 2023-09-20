@@ -34,4 +34,10 @@ public class MenuItemsController : ControllerBase
         var menuItem = _menuItemRepository.GetById(id);
         return new MenuItemViewModel(menuItem);
     }
+
+    [HttpPost("create")]
+    public void Create(MenuItem sendetValue)
+    {
+        var createMenuItem = _menuItemRepository.Create(sendetValue);
+    }
 }
