@@ -27,6 +27,11 @@ const router = createRouter({
       component: () => import('../views/EditMenuItemView.vue')
     },
     {
+      path: '/create',
+      name: 'create',
+      component: () => import('../views/CreateMenuItemView.vue')
+    },
+    {
       path: '/adminLogin',
       name: 'adminLogin',
       component: () => import('../views/AdminLoginView.vue')
