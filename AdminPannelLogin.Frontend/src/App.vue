@@ -6,10 +6,10 @@ import HelloWorld from './components/HelloWorld.vue';
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld msg="Hallo" />
+      <HelloWorld msg="Name Placeholder" />
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/Menu">Menu</RouterLink>
+        <RouterLink to="/menuItems">Menu</RouterLink>
         <RouterLink to="/adminLogin">Admin</RouterLink>
       </nav>
     </div>
@@ -22,7 +22,6 @@ header {
   line-height: 1.5;
   max-height: 100vh;
 }
-
 .logo {
   display: block;
   margin: 0 auto 2rem;
