@@ -20,10 +20,7 @@ api.fetchMenuItemById(props.id!).then((result) => (menuItem.value = result));
     </div>
     <div>
       <h2>{{ menuItem?.price }}</h2>
-    </div>
-
-    <div>
-      <button>Edit BTN</button>
+      <button class="EditBtn">Edit BTN</button>
     </div>
   </div>
 
@@ -39,5 +36,12 @@ h1 {
 .menuItemDetailViewContainer {
   display: grid;
   grid-template-columns: auto auto;
+}
+@media (max-width: 1024px) {
+  .menuItemDetailViewContainer {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 15%;
+  }
 }
 </style>
