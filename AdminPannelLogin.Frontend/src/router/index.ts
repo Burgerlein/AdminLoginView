@@ -21,6 +21,12 @@ const router = createRouter({
       component: () => import('../views/MenuDetailView.vue')
     },
     {
+      path: '/edit/:id(\\d+)',
+      name: 'edit',
+      props: true,
+      component: () => import('../views/EditMenuItemView.vue')
+    },
+    {
       path: '/adminLogin',
       name: 'adminLogin',
       component: () => import('../views/AdminLoginView.vue')
