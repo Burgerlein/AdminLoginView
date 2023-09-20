@@ -19,7 +19,9 @@ api.fetchAllMeuItems().then((result) => (menuItems.value = result));
       </tr>
       <tr v-for="menuItem in menuItems" :key="menuItem.id">
         <td>{{ menuItem.id }}</td>
-        <td>{{ menuItem.nameDe }}</td>
+        <td>
+          <a :href="'menuItems/' + menuItem.id">{{ menuItem.nameDe }}</a>
+        </td>
         <td>{{ menuItem.nameEn }}</td>
         <td>{{ menuItem.descriptionDe }}</td>
         <td>{{ menuItem.descriptionEn }}</td>
