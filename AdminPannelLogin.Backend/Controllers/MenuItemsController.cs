@@ -35,9 +35,17 @@ public class MenuItemsController : ControllerBase
         return new MenuItemViewModel(menuItem);
     }
 
-    [HttpPost("create")]
-    public void Create(MenuItem sendetValue)
+    [HttpPost]
+    public MenuItemViewModel Create([FromBody] MenuItem menuItem)
     {
-        var createMenuItem = _menuItemRepository.Create(sendetValue);
+        var createdMenuItem = _menuItemRepository.Create(menuItem);
+        return new MenuItemViewModel(createdMenuItem);
+    }
+    
+    [HttpPut]
+    public MenuItemViewModel Update([FromBody] MenuItem menuItem)    
+    {
+        var updateMenuItem = _menuItemRepository.Update(menuItem);
+        return new MenuItemViewModel(updateMenuItem);
     }
 }

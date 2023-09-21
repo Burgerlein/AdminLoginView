@@ -1,32 +1,40 @@
-<!-- <script setup lang="ts">
-const data = {
-  price: 'price',
-  nameDe: 'TestDe',
-  nameEn: 'TestEn',
-  descriptionDe: 'desDe',
-  descriptionEn: 'desEn'
-};
+<script setup lang="ts">
+import api from '@/api';
+import type { MenuItemCreationData } from '@/api/MenuItem';
+import { ref } from 'vue';
 
-const dataJson = JSON.stringify({ data });
-</script> -->
+const creationData = ref<MenuItemCreationData>({
+  price: 0,
+  nameDe: '',
+  nameEn: '',
+  descriptionDe: '',
+  descriptionEn: ''
+});
+
+function submit() {
+  if (creationData.value.nameDe && creationData.value.price) {
+    api.createMenuItem(creationData.value);
+  }
+}
+</script>
 <template>
-  <form action="">
+  <form>
     <p>Deutscher Item Name:</p>
-    <input type="text" required v-model="form.nameDe" />
+    <input type="text" required v-model="creationData.nameDe" />
 
     <p>Englischer Item Name:</p>
-    <input type="text" v-model="form.nameEn" />
+    <input type="text" v-model="creationData.nameEn" />
 
     <p>Deutsche Beschreibung:</p>
-    <input type="text" v-model="form.descriptionDe" />
+    <input type="text" v-model="creationData.descriptionDe" />
 
     <p>Englische Beschreibung:</p>
-    <input type="text" v-model="form.descriptionEn" />
+    <input type="text" v-model="creationData.descriptionEn" />
 
     <p>Preis:</p>
-    <input type="text" required v-model="form.price" />
+    <input type="number" required v-model="creationData.price" />
     <br />
-    <button type="submit" @click="submit">submit</button>
+    <button type="submit" @click.prevent="submit">Senden</button>
   </form>
 </template>
 

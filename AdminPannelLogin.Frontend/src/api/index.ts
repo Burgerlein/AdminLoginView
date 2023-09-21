@@ -1,5 +1,5 @@
-import { fetchAllMeuItems, fetchMenuItemById } from './MenuItem';
+import { fetchAllMeuItems, fetchMenuItemById, createMenuItem } from './MenuItem';
 
-const api = { fetchAllMeuItems, fetchMenuItemById };
+const api = { fetchAllMeuItems, fetchMenuItemById, createMenuItem };
 
 export default api;

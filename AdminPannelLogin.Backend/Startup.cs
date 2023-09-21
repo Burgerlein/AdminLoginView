@@ -28,7 +28,7 @@ public class Startup
         services.AddCors(options =>
         {
             options.AddPolicy(name: "MyAllowSpecificOrigins",
-                corsPolicyBuilder => { corsPolicyBuilder.AllowAnyOrigin(); });
+                corsPolicyBuilder => { corsPolicyBuilder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();  });
         });
     }
 }
