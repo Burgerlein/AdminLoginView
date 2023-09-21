@@ -34,25 +34,17 @@ api.fetchAllMeuItems().then((result) => (menuItems.value = result));
   </div>
 </template>
 <style scoped>
-table {
-  width: 100%;
-  text-align: center;
+* {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
-th {
-  color: white;
-  font-size: 1vw;
-  min-width: 10rem;
+.menuItemListContainer {
+  display: grid;
+  grid-template-columns: 80% 20%;
 }
-th,
-td {
-  border-bottom: 1px solid white;
-  border-left: 1px solid white;
-}
-th:first-of-type,
-td:first-of-type {
-  border-left: none;
-}
-table {
-  border-collapse: collapse;
+.menuItemList {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 </style>

@@ -18,6 +18,13 @@ import HelloWorld from './components/HelloWorld.vue';
 </template>
 
 <style scoped>
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -28,7 +35,6 @@ header {
 }
 
 nav {
-  width: 100%;
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
@@ -68,7 +74,11 @@ nav a:first-of-type {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-
+  .wrapper {
+    position: fixed;
+    left: 10rem;
+    width: fit-content;
+  }
   nav {
     text-align: left;
     margin-left: -1rem;

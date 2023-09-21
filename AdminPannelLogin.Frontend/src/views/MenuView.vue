@@ -7,3 +7,9 @@ import MenuItemList from '@/components/MenuItemList.vue';
     <MenuItemList></MenuItemList>
   </main>
 </template>
+\
+<style scoped>
+a {
+  color: black;
+}
+</style>

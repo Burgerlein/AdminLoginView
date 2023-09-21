@@ -29,38 +29,11 @@ const dataJson = JSON.stringify({ data });
     <button type="submit" @click="submit">submit</button>
   </form>
 </template>
-<script lang="ts">
-export default {
-  data() {
-    return {
-      form: {
-        price: '',
-        nameDe: '',
-        nameEn: '',
-        descriptionDe: '',
-        descriptionEn: ''
-      }
-    };
-  },
-  methods: {
-    async submit() {
-      fetch('https://localhost:7142/api/menuitems/create', {
-        method: 'POST',
-        body: JSON.stringify({
-          price: 1,
-          nameDe: 'Pommes',
-          descriptionDe: 'lecker',
-          descriptionEn: 'cool'
-        }),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8'
-        }
-      });
-    }
-  }
-};
-</script>
+
 <style scoped>
+div {
+  min-width: 30rem;
+}
 form {
   display: flex;
   flex-direction: column;
@@ -71,7 +44,8 @@ p {
   font-size: 0.8vw;
   margin-top: 10px;
 }
-input[type='text'] {
+input[type='text'],
+input[type='number'] {
   background-color: #393c40;
   color: white;
   border: #545c66;
@@ -86,7 +60,8 @@ input[type='text'] {
     font-size: 2.5vw;
     margin-top: 10px;
   }
-  input[type='text'] {
+  input[type='text'],
+  input[type='number'] {
     font-size: 3vw;
   }
 }
