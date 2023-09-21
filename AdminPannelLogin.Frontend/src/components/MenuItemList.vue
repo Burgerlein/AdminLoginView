@@ -7,30 +7,25 @@ const menuItems = ref<MenuItem[]>();
 api.fetchAllMeuItems().then((result) => (menuItems.value = result));
 </script>
 <template>
-  <main v-if="menuItems">
-    <table>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>name</th>
-        <th>Beschreibung</th>
-        <th>description</th>
-        <th>Preis</th>
-      </tr>
-      <tr v-for="menuItem in menuItems" :key="menuItem.id">
-        <td>{{ menuItem.id }}</td>
-        <td>
-          <a :href="'menuItems/' + menuItem.id">{{ menuItem.nameDe }}</a>
-        </td>
-        <td>{{ menuItem.nameEn }}</td>
-        <td>{{ menuItem.descriptionDe }}</td>
-        <td>{{ menuItem.descriptionEn }}</td>
-        <td>{{ menuItem.price }}</td>
-      </tr>
-    </table>
-  </main>
+  <div v-if="menuItems">
+    <div v-for="(menuItem, index) in menuItems" :key="menuItem.id" class="menuItemList">
+      <div class="menuItemListContainer">
+        <div>
+          <h1>
+            <a :href="'menuItems/' + menuItem.id">
+              {{ index + 1 }} {{ menuItem.nameDe }}
+              {{ menuItem.nameEn ? '/ ' + menuItem.nameEn : '' }}
+            </a>
+          </h1>
+          <h3>{{ menuItem.descriptionDe }}</h3>
+          <h3>{{ menuItem.descriptionEn }}</h3>
+        </div>
+        <h3>{{ menuItem.price }}€</h3>
+      </div>
+    </div>
+  </div>
   <div v-else>
-    <h1>could not fetch</h1>
+    <h1>Error with fetching data</h1>
   </div>
 </template>
 <style scoped>
