@@ -52,7 +52,7 @@ form {
   width: 100%;
 }
 p {
-  font-size: 0.8vw;
+  font-size: 1.5vw;
   margin-top: 10px;
 }
 input[type='text'],
