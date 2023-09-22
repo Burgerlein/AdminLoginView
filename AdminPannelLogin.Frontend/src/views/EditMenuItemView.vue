@@ -6,10 +6,12 @@ const props = defineProps({
 import { ref } from 'vue';
 import type { MenuItem } from '@/api/MenuItem';
 import api from '@/api';
+import router from '@/router';
 
 function submit() {
   if (menuItem.value?.nameDe && menuItem.value.price) {
     api.updateMenuItem(menuItem.value);
+    router.back();
   }
 }
 
@@ -34,7 +36,7 @@ api.fetchMenuItemById(props.id!).then((result) => (menuItem.value = result));
       <p>Preis:</p>
       <input type="number" required v-model="menuItem.price" />
       <br />
-      <input type="submit" @click.capture="submit()" />
+      <input type="submit" @click.capture.prevent="submit()" />
     </form>
   </div>
   <div v-else>

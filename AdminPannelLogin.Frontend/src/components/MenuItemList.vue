@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import type { MenuItem } from '@/api/MenuItem';
 import api from '@/api';
+import type { RouterLink } from 'vue-router';
 
 const menuItems = ref<MenuItem[]>();
 api.fetchAllMeuItems().then((result) => (menuItems.value = result));
@@ -12,10 +13,10 @@ api.fetchAllMeuItems().then((result) => (menuItems.value = result));
       <div class="menuItemListContainer">
         <div>
           <h1>
-            <a :href="'menuItems/' + menuItem.id">
+            <RouterLink :to="'menuItems/' + menuItem.id">
               {{ index + 1 }} {{ menuItem.nameDe }}
               {{ menuItem.nameEn ? '/ ' + menuItem.nameEn : '' }}
-            </a>
+            </RouterLink>
           </h1>
           <h3>{{ menuItem.descriptionDe }}</h3>
           <h3>{{ menuItem.descriptionEn }}</h3>

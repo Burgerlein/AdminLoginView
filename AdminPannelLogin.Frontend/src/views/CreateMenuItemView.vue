@@ -15,7 +15,7 @@ const creationData = ref<MenuItemCreationData>({
 async function submit() {
   if (creationData.value.nameDe && creationData.value.price) {
     var createMenuItemData = api.createMenuItem(creationData.value);
-    router.push(`../menuItems/${(await createMenuItemData).id}`);
+    router.push(`${(await createMenuItemData).id}`);
   }
 }
 </script>

@@ -21,13 +21,13 @@ const router = createRouter({
       component: () => import('../views/MenuDetailView.vue')
     },
     {
-      path: '/edit/:id(\\d+)',
+      path: '/menuItems/:id(\\d+)/edit',
       name: 'edit',
       props: true,
       component: () => import('../views/EditMenuItemView.vue')
     },
     {
-      path: '/create',
+      path: '/menuItems/create',
       name: 'create',
       component: () => import('../views/CreateMenuItemView.vue')
     },

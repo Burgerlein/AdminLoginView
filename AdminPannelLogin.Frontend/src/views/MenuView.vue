@@ -3,7 +3,7 @@ import MenuItemList from '@/components/MenuItemList.vue';
 </script>
 <template>
   <main>
-    <button><a href="../create">Create New</a></button>
+    <button><a href="/menuItems/create">Create New</a></button>
     <MenuItemList></MenuItemList>
   </main>
 </template>

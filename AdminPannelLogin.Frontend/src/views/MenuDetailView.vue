@@ -20,7 +20,7 @@ api.fetchMenuItemById(props.id!).then((result) => (menuItem.value = result));
     </div>
     <div>
       <h2>{{ menuItem?.price }}</h2>
-      <a :href="'../edit/' + menuItem.id">Edit BTN</a>
+      <RouterLink :to="id + '/edit'">Edit BTN</RouterLink>
     </div>
   </div>
 
