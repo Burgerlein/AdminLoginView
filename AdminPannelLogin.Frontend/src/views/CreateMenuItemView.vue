@@ -41,17 +41,15 @@ async function submit() {
 </template>
 
 <style scoped>
-div {
-  min-width: 30rem;
-}
 form {
   display: flex;
+  min-width: 30rem;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 p {
-  font-size: 0.8vw;
+  font-size: 1.5vw;
   margin-top: 10px;
 }
 input[type='text'],
