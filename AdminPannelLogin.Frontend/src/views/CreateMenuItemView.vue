@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import api from '@/api';
 import type { MenuItemCreationData } from '@/api/MenuItem';
+import router from '@/router';
 import { ref } from 'vue';
 
 const creationData = ref<MenuItemCreationData>({
@@ -11,9 +12,10 @@ const creationData = ref<MenuItemCreationData>({
   descriptionEn: ''
 });
 
-function submit() {
+async function submit() {
   if (creationData.value.nameDe && creationData.value.price) {
-    api.createMenuItem(creationData.value);
+    var createMenuItemData = api.createMenuItem(creationData.value);
+    router.push(`../menuItems/${(await createMenuItemData).id}`);
   }
 }
 </script>
