@@ -9,9 +9,9 @@ export type MenuItem = {
 export type MenuItemCreationData = {
   price: number;
   nameDe: string;
-  nameEn: string;
-  descriptionDe: string;
-  descriptionEn: string;
+  nameEn?: string;
+  descriptionDe?: string;
+  descriptionEn?: string;
 };
 export const fetchAllMeuItems = async (): Promise<MenuItem[]> => {
   const json = await fetch('https://localhost:7142/api/menuitems').then((response) =>

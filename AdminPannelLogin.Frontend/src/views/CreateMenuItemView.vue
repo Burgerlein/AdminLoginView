@@ -5,11 +5,8 @@ import router from '@/router';
 import { ref } from 'vue';
 
 const creationData = ref<MenuItemCreationData>({
-  price: 0,
-  nameDe: '',
-  nameEn: '',
-  descriptionDe: '',
-  descriptionEn: ''
+  price: 0.0,
+  nameDe: ''
 });
 
 async function submit() {
