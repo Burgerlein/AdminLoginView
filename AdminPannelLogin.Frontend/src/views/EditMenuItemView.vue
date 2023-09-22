@@ -34,7 +34,7 @@ api.fetchMenuItemById(props.id!).then((result) => (menuItem.value = result));
       <input type="text" v-model="menuItem.descriptionEn" />
 
       <p>Preis:</p>
-      <input type="number" required v-model="menuItem.price" />
+      <input type="number" step=".01" required v-model="menuItem.price" />
       <br />
       <input type="submit" @click.capture.prevent="submit()" />
     </form>

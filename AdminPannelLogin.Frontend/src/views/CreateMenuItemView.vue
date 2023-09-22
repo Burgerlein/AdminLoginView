@@ -34,7 +34,7 @@ async function submit() {
     <input type="text" v-model="creationData.descriptionEn" />
 
     <p>Preis:</p>
-    <input type="number" required v-model="creationData.price" />
+    <input type="number" step="0.01" required v-model="creationData.price" />
     <br />
     <button type="submit" @click.prevent="submit">Senden</button>
   </form>
