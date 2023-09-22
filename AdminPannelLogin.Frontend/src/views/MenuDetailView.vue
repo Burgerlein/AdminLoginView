@@ -35,13 +35,15 @@ api.fetchMenuItemById(props.id!).then((result) => (menuItem.value = result));
 <style scoped>
 .menuItemDetailViewContainer {
   display: grid;
-  grid-template-columns: auto auto;
+  width: 30rem;
+  grid-template-columns: 80% 20%;
 }
 @media (max-width: 1024px) {
   .menuItemDetailViewContainer {
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 15%;
+    width: 70%;
   }
 }
 </style>
