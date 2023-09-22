@@ -6,28 +6,35 @@ const props = defineProps({
 import { ref } from 'vue';
 import type { MenuItem } from '@/api/MenuItem';
 import api from '@/api';
+
+function submit() {
+  if (menuItem.value?.nameDe && menuItem.value.price) {
+    api.updateMenuItem(menuItem.value);
+  }
+}
+
 const menuItem = ref<MenuItem | undefined>();
 api.fetchMenuItemById(props.id!).then((result) => (menuItem.value = result));
 </script>
 <template>
   <div v-if="menuItem">
-    <form action="">
+    <form>
       <p>Deutscher Item Name:</p>
-      <input :value="menuItem?.nameDe" type="text" required />
+      <input type="text" required v-model="menuItem.nameDe" />
 
       <p>Englischer Item Name:</p>
-      <input :value="menuItem?.nameEn" type="text" />
+      <input type="text" v-model="menuItem.nameEn" />
 
       <p>Deutsche Beschreibung:</p>
-      <input :value="menuItem?.descriptionDe" type="text" />
+      <input type="text" v-model="menuItem.descriptionDe" />
 
       <p>Englische Beschreibung:</p>
-      <input :value="menuItem?.descriptionEn" type="text" />
+      <input type="text" v-model="menuItem.descriptionEn" />
 
       <p>Preis:</p>
-      <input :value="menuItem?.price" type="text" required />
+      <input type="number" required v-model="menuItem.price" />
       <br />
-      <input type="submit" />
+      <input type="submit" @click.capture="submit()" />
     </form>
   </div>
   <div v-else>
